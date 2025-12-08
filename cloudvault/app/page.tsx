@@ -1,65 +1,135 @@
-import Image from "next/image";
+// app/page.jsx
+"use client";
 
-export default function Home() {
+import React from "react";
+import Link from "next/link";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Navbar />
+    <main className="min-h-screen bg-gray-50 text-slate-900">
+      {/* HERO */}
+      <section className="bg-linear-to-r from-sky-600 to-indigo-600 text-white py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+              CloudVault — Smart Cloud Media Manager
+            </h1>
+            <p className="text-lg md:text-xl opacity-90 mb-8">
+              Upload, manage and share your images, videos & documents securely — built with Next.js and modern cloud storage.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/upload" className="inline-block bg-white text-sky-700 px-6 py-3 rounded-lg font-medium shadow hover:opacity-95">
+                Upload Media
+              </Link>
+              <Link href="/sign-in" className="inline-block border border-white/30 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10">
+                Sign in
+              </Link>
+            </div>
+
+            <p className="mt-6 text-sm opacity-80">
+              Demo account available — check the <Link href="/demo" className="underline">demo</Link> or view the <Link href="/docs" className="underline">docs</Link>.
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* FEATURES */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-semibold">What CloudVault Does</h2>
+            <p className="text-slate-500 mt-2">All the essentials to manage and deliver media fast.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold mb-2">Cloud Storage</h3>
+              <p className="text-sm text-slate-600">Upload files directly to Cloudinary / S3 / Azure Blob with resumable uploads and metadata.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold mb-2">Transform & Optimize</h3>
+              <p className="text-sm text-slate-600">Automatic image/video transformations, format conversions and CDN delivery for fast performance.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold mb-2">Secure Sharing</h3>
+              <p className="text-sm text-slate-600">Generate expiring signed URLs, role-based access, and shareable links.</p>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-semibold">How it works</h2>
+            <p className="text-slate-500 mt-2">A simple 3-step flow.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-lg border border-slate-100 text-center">
+              <div className="text-3xl mb-4">1</div>
+              <h4 className="font-medium mb-2">Upload</h4>
+              <p className="text-sm text-slate-600">Choose files, add tags and metadata, then upload to cloud storage.</p>
+            </div>
+
+            <div className="p-6 rounded-lg border border-slate-100 text-center">
+              <div className="text-3xl mb-4">2</div>
+              <h4 className="font-medium mb-2">Manage</h4>
+              <p className="text-sm text-slate-600">Search, filter by tech/tags, and categorize your media assets.</p>
+            </div>
+
+            <div className="p-6 rounded-lg border border-slate-100 text-center">
+              <div className="text-3xl mb-4">3</div>
+              <h4 className="font-medium mb-2">Share</h4>
+              <p className="text-sm text-slate-600">Create short links or secure signed URLs to share with clients or partners.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY (placeholders) */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-semibold">Recent uploads</h3>
+            <Link href="/gallery" className="text-sky-600 underline">View all</Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div key={i} className="bg-white rounded overflow-hidden shadow-sm h-32 flex items-center justify-center text-slate-400">
+                <span>Thumbnail</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TECHS */}
+      <section className="py-12 bg-slate-50">
+        <div className="container mx-auto px-6 text-center">
+          <h4 className="mb-4 font-medium">Built with</h4>
+          <div className="flex items-center justify-center flex-wrap gap-6">
+            <span className="px-3 py-2 bg-white rounded shadow text-sm">Next.js</span>
+            <span className="px-3 py-2 bg-white rounded shadow text-sm">React</span>
+            <span className="px-3 py-2 bg-white rounded shadow text-sm">Cloudinary / S3 / Azure</span>
+            <span className="px-3 py-2 bg-white rounded shadow text-sm">MongoDB / Cosmos DB</span>
+            <span className="px-3 py-2 bg-white rounded shadow text-sm">GitHub Actions</span>
+          </div>
+        </div>
+      </section>
+
+     
+    </main>
+    <Footer/>
+    </>
   );
 }
